@@ -19,5 +19,9 @@ Node.js 24 이상이 필요합니다 (`node --version`으로 확인).
 - CTA: 콘텐츠 마지막에 자사몰 상품 상세페이지(`https://luxnlab.co.kr/product/detail.html?product_no=17`)로 연결되는 버튼 하나만 배치 (`src/app/page.tsx`). 이 CTA가 페이지의 유일한 상호작용 요소임 (상담 폼 없음).
 - `/clone-website` 스킬을 실행하더라도 `docs/홈페이지-기획.md`가 원본(네이버 블로그) 그대로 재현하는 기본값보다 우선함 — 레이아웃 흐름만 참고하고 문구·로고·색은 이 기획을 따를 것.
 
+## Vercel 배포 이슈 및 해결 (2026-09-13)
+- Vercel 프로젝트의 Framework Preset이 "Other"로 잘못 설정돼 있어 빌드는 성공해도 실제 서빙이 404였음 → Next.js로 변경.
+- Next.js 16 기본 빌드(Turbopack)가 Vercel이 필요로 하는 서버 추적 파일(`next-server.js.nft.json`)을 만들지 못해 빌드가 실패함 (`Collecting build traces ...` 단계 자체가 생략됨). `package.json`의 `build` 스크립트를 `next build --webpack`으로 변경해 해결. Turbopack의 프로덕션 빌드 NFT 트레이싱이 안정화되면 다시 기본값(`next build`)으로 되돌려도 됨.
+
 ## 구현 전 확인 필요 (미해결 항목)
 자세한 내용은 `docs/홈페이지-기획.md`의 "구현 전 확인 필요" 참고 — 실제 로고 파일, 푸터 사업자 정보가 남아있음.

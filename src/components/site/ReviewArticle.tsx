@@ -1,27 +1,88 @@
 import Image from "next/image";
-import type { Block } from "@/data/review-content";
+import { cn } from "@/lib/utils";
+import type { Block, Run, RichText } from "@/data/review-content";
+
+function RunView({ run }: { run: Run }) {
+  if (typeof run === "string") return <>{run}</>;
+  return (
+    <span className={cn(run.bold && "font-bold", run.red && "text-destructive")}>
+      {run.text}
+    </span>
+  );
+}
+
+function RichTextView({ text }: { text: RichText }) {
+  return (
+    <>
+      {text.map((run, i) => (
+        <RunView key={i} run={run} />
+      ))}
+    </>
+  );
+}
+
+function LineGroup({
+  lines,
+  lineClassName,
+}: {
+  lines: RichText[];
+  lineClassName?: string;
+}) {
+  return (
+    <div className="space-y-1">
+      {lines.map((line, i) => (
+        <p key={i} className={lineClassName}>
+          <RichTextView text={line} />
+        </p>
+      ))}
+    </div>
+  );
+}
 
 function BlockView({ block }: { block: Block }) {
   switch (block.type) {
-    case "p":
-      return <p className="text-[15px] leading-8 text-foreground/90">{block.text}</p>;
+    case "lines":
+      return (
+        <LineGroup
+          lines={block.lines}
+          lineClassName="text-[15px] leading-7 text-foreground/90"
+        />
+      );
+    case "lead":
+      return (
+        <LineGroup
+          lines={block.lines}
+          lineClassName="text-[16px] leading-7 font-bold text-foreground"
+        />
+      );
     case "quote":
       return (
-        <p className="border-l-2 border-primary/40 pl-4 text-[15px] leading-8 font-medium text-foreground">
-          {block.text}
-        </p>
+        <div className="border-l-2 border-primary/40 pl-4">
+          <LineGroup
+            lines={block.lines}
+            lineClassName="text-[15px] leading-7 font-medium text-foreground"
+          />
+        </div>
       );
     case "h2":
       return (
-        <h2 className="pt-2 text-xl font-bold text-primary sm:text-2xl">{block.text}</h2>
+        <h2 className="pt-2 text-xl font-bold text-primary sm:text-2xl">
+          <RichTextView text={block.text} />
+        </h2>
       );
     case "h3":
-      return <h3 className="text-lg font-semibold text-foreground">{block.text}</h3>;
+      return (
+        <h3 className="text-[19px] font-bold text-foreground">
+          <RichTextView text={block.text} />
+        </h3>
+      );
     case "list":
       return (
         <ul className="list-disc space-y-2 pl-5 text-[15px] leading-7 text-foreground/90">
           {block.items.map((item, i) => (
-            <li key={i}>{item}</li>
+            <li key={i}>
+              <RichTextView text={item} />
+            </li>
           ))}
         </ul>
       );
@@ -35,7 +96,7 @@ function BlockView({ block }: { block: Block }) {
             height={block.height}
             className="w-full rounded-xl object-cover"
           />
-          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+          <figcaption className="mt-2 text-center text-[13px] font-bold text-[#555555]">
             {block.caption}
           </figcaption>
         </figure>
@@ -43,7 +104,11 @@ function BlockView({ block }: { block: Block }) {
     case "divider":
       return <hr className="border-border" />;
     case "source":
-      return <p className="text-xs text-muted-foreground italic">{block.text}</p>;
+      return <p className="text-[11px] leading-5 text-[#1b1b1b]">{block.text}</p>;
+    default: {
+      const _exhaustive: never = block;
+      return _exhaustive;
+    }
   }
 }
 

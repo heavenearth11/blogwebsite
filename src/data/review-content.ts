@@ -16,7 +16,7 @@ const r = (text: string): Run => ({ text, red: true });
 const br = (text: string): Run => ({ text, bold: true, red: true });
 
 export type Block =
-  | { type: "lines"; lines: RichText[]; gapBeforePx?: number }
+  | { type: "lines"; lines: RichText[]; gapBeforePx?: number; emphasis?: boolean }
   | { type: "lead"; lines: RichText[] }
   | { type: "quote"; lines: RichText[] }
   | { type: "h2"; text: RichText }
@@ -27,7 +27,7 @@ export type Block =
       src: string;
       width: number;
       height: number;
-      caption: string;
+      caption?: string;
     }
   | {
       type: "imagePair";
@@ -59,7 +59,7 @@ export const introBlocks: Block[] = [
   {
     type: "lines",
     lines: [
-      ["부탁 좀 드릴게요.."],
+      [b("부탁 좀 드릴게요..")],
       ["전에 카페 인기글로 올라갔다가"],
       ["본업에 방해가 될정도로"],
       ["메일과 쪽지 질문이"],
@@ -68,10 +68,17 @@ export const introBlocks: Block[] = [
   },
   {
     type: "lines",
+    emphasis: true,
     lines: [
-      ["다시 한번 말씀드립니다."],
-      ["광고 문의는 안받습니다."],
+      [r("다시 한번 말씀드립니다.")],
+      [r("광고 문의는 안받습니다.")],
     ],
+  },
+  {
+    type: "image",
+    src: "/images/review/쪽지.png",
+    width: 931,
+    height: 232,
   },
 ];
 
@@ -584,10 +591,67 @@ export const bodyBlocks: Block[] = [
   {
     type: "lines",
     lines: [
-      ["근본 원인인"],
-      ["'과잉 에스트로겐과"],
-      ["자궁 독소'만 제대로 비워낸다면"],
-      ["자궁은 스스로 회복할 수 있어요. :)"],
+      ["그리고 그 방법은"],
+      ["생각만큼 복잡하지 않아요."],
+    ],
+  },
+  {
+    type: "lines",
+    lines: [
+      ["너무 많은것을 하려고 하다 보면"],
+      ["오히려 쉽게 지치고 더 망가질 수 있다는걸"],
+      ["직접 공부하고 경험하면서"],
+      ["깨닫게 됐어요."],
+    ],
+  },
+  {
+    type: "lines",
+    lines: [
+      ["그래서"],
+      ["진짜로 효과가 있던 것에만 집중했고"],
+      ["그것이 제 몸을 바꾸고"],
+      ["자연임신을 가능하게 한"],
+      ["방법이었어요."],
+    ],
+  },
+  {
+    type: "lines",
+    lines: [
+      ["이 글이"],
+      ["예전의 저처럼"],
+      ["불안하고 지쳐있는 누군가에게"],
+      ["희망이 되어드릴 수 있기를"],
+      ["진심으로 바랍니다."],
+    ],
+  },
+  { type: "h2", text: ["(+추가+)"] },
+  {
+    type: "lines",
+    lines: [
+      ["쪽지랑 메일로"],
+      ["제품 물어보시는 분이 많더라구요."],
+    ],
+  },
+  {
+    type: "lines",
+    lines: [
+      ["제가 적어놓은 성분들이 들어간거를 고르시면"],
+      ["동일한 효과를 보실 수 있을거에요."],
+    ],
+  },
+  {
+    type: "lines",
+    lines: [
+      ["그래도"],
+      ["제품을 잘 못찾겠다고 연락주시는 분들이 있어"],
+      ["제가 복용했던 자궁디톡스 유산균 남겨드려요."],
+    ],
+  },
+  {
+    type: "lines",
+    lines: [
+      ["자칫 광고로 보일수도 있어서"],
+      ["딱 일주일만 공개하고 삭제할 예정입니다."],
     ],
   },
 ];

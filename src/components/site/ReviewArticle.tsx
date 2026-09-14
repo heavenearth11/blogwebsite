@@ -47,7 +47,11 @@ function BlockView({ block }: { block: Block }) {
       return (
         <LineGroup
           lines={block.lines}
-          lineClassName="text-[15px] leading-7 text-foreground/90"
+          lineClassName={
+            block.emphasis
+              ? "text-xl font-bold leading-snug sm:text-2xl"
+              : "text-[15px] leading-7 text-foreground/90"
+          }
           style={block.gapBeforePx != null ? { marginTop: block.gapBeforePx } : undefined}
         />
       );
@@ -97,14 +101,16 @@ function BlockView({ block }: { block: Block }) {
         <figure className="mt-2 mb-12">
           <Image
             src={block.src}
-            alt={block.caption}
+            alt={block.caption ?? ""}
             width={block.width}
             height={block.height}
             className="w-full rounded-xl object-cover"
           />
-          <figcaption className="mt-2 text-center text-[13px] font-bold text-[#555555]">
-            {block.caption}
-          </figcaption>
+          {block.caption && (
+            <figcaption className="mt-2 text-center text-[13px] font-bold text-[#555555]">
+              {block.caption}
+            </figcaption>
+          )}
         </figure>
       );
     case "imagePair":

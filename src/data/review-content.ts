@@ -5,7 +5,7 @@
 
 export const meta = {
   sourceUrl: "https://blog.naver.com/make_it_good/224269250868",
-  title: "자궁근종으로 일상이 무너졌던 40대 워킹맘이 3년만에 인생 구원한 방법",
+  title: "자궁질환 2관왕에 적출까지 갈뻔했던 40대가 자임한 후기 (+실제 루틴)",
 };
 
 export type Run =

@@ -14,8 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://blogwebsite-lovat.vercel.app"),
   title: "에스트록스 실제 후기",
   description: meta.title,
+  openGraph: {
+    title: "에스트록스 실제 후기",
+    description: meta.title,
+    images: ["/images/review/review-01.jpeg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "에스트록스 실제 후기",
+    description: meta.title,
+    images: ["/images/review/review-01.jpeg"],
+  },
 };
 
 export default function RootLayout({

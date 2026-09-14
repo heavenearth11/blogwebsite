@@ -55,12 +55,16 @@ function BlockView({ block }: { block: Block }) {
       return (
         <LineGroup
           lines={block.lines}
-          lineClassName={
+          lineClassName={cn(
             block.emphasis
               ? "text-xl font-bold leading-snug sm:text-2xl"
-              : "text-[15px] leading-7 text-foreground/90"
-          }
-          style={block.gapBeforePx != null ? { marginTop: block.gapBeforePx } : undefined}
+              : "text-[15px] leading-7 text-foreground/90",
+            block.highlight && "inline-block bg-yellow-200 px-2 py-0.5 rounded",
+          )}
+          style={{
+            ...(block.gapBeforePx != null ? { marginTop: block.gapBeforePx } : undefined),
+            ...(block.noMarginAfter ? { marginBottom: 0 } : undefined),
+          }}
         />
       );
     case "lead":

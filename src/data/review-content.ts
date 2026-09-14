@@ -19,7 +19,14 @@ const br = (text: string): Run => ({ text, bold: true, red: true });
 const link = (text: string, href: string): Run => ({ text, href, bold: true });
 
 export type Block =
-  | { type: "lines"; lines: RichText[]; gapBeforePx?: number; emphasis?: boolean }
+  | {
+      type: "lines";
+      lines: RichText[];
+      gapBeforePx?: number;
+      emphasis?: boolean;
+      highlight?: boolean;
+      noMarginAfter?: boolean;
+    }
   | { type: "lead"; lines: RichText[] }
   | { type: "quote"; lines: RichText[] }
   | { type: "h2"; text: RichText }
@@ -659,8 +666,16 @@ export const bodyBlocks: Block[] = [
   },
   {
     type: "lines",
+    emphasis: true,
+    highlight: true,
+    noMarginAfter: true,
+    lines: [["자궁디톡스 유산균 링크"]],
+  },
+  {
+    type: "lines",
+    highlight: true,
+    gapBeforePx: 18,
     lines: [
-      ["자궁디톡스 유산균 링크"],
       ["→ ", link("https://m.site.naver.com/2gFOf", "https://m.site.naver.com/2gFOf")],
     ],
   },

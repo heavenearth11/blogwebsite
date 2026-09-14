@@ -4,11 +4,19 @@ import type { Block, Run, RichText } from "@/data/review-content";
 
 function RunView({ run }: { run: Run }) {
   if (typeof run === "string") return <>{run}</>;
-  return (
-    <span className={cn(run.bold && "font-bold", run.red && "text-destructive")}>
-      {run.text}
-    </span>
+  const className = cn(
+    run.bold && "font-bold",
+    run.red && "text-destructive",
+    run.href && "text-primary underline underline-offset-2",
   );
+  if (run.href) {
+    return (
+      <a href={run.href} target="_blank" rel="noopener noreferrer" className={className}>
+        {run.text}
+      </a>
+    );
+  }
+  return <span className={className}>{run.text}</span>;
 }
 
 function RichTextView({ text }: { text: RichText }) {

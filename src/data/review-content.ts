@@ -8,12 +8,15 @@ export const meta = {
   title: "자궁근종으로 일상이 무너졌던 40대 워킹맘이 3년만에 인생 구원한 방법",
 };
 
-export type Run = string | { text: string; bold?: boolean; red?: boolean };
+export type Run =
+  | string
+  | { text: string; bold?: boolean; red?: boolean; href?: string };
 export type RichText = Run[];
 
 const b = (text: string): Run => ({ text, bold: true });
 const r = (text: string): Run => ({ text, red: true });
 const br = (text: string): Run => ({ text, bold: true, red: true });
+const link = (text: string, href: string): Run => ({ text, href, bold: true });
 
 export type Block =
   | { type: "lines"; lines: RichText[]; gapBeforePx?: number; emphasis?: boolean }
@@ -652,6 +655,13 @@ export const bodyBlocks: Block[] = [
     lines: [
       ["자칫 광고로 보일수도 있어서"],
       ["딱 일주일만 공개하고 삭제할 예정입니다."],
+    ],
+  },
+  {
+    type: "lines",
+    lines: [
+      ["자궁디톡스 유산균 링크"],
+      ["→ ", link("https://m.site.naver.com/2gFOf", "https://m.site.naver.com/2gFOf")],
     ],
   },
 ];

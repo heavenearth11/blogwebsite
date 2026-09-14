@@ -66,7 +66,7 @@ function BlockView({ block }: { block: Block }) {
       );
     case "h2":
       return (
-        <h2 className="pt-2 text-xl font-bold text-primary sm:text-2xl">
+        <h2 className="pt-8 text-xl font-bold text-primary sm:text-2xl">
           <RichTextView text={block.text} />
         </h2>
       );

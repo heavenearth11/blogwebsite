@@ -88,7 +88,7 @@ function BlockView({ block }: { block: Block }) {
       );
     case "image":
       return (
-        <figure className="my-2">
+        <figure className="mt-2 mb-6">
           <Image
             src={block.src}
             alt={block.caption}

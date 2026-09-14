@@ -144,7 +144,7 @@ export const bodyBlocks: Block[] = [
   },
   {
     type: "quote",
-    lines: [[b("“이번엔 자궁 근종이네요. 크기도 5 cm 입니다.”")]],
+    lines: [[b("“이번엔 자궁근종이네요. 크기도 5 cm 입니다.”")]],
   },
   {
     type: "quote",
@@ -162,7 +162,7 @@ export const bodyBlocks: Block[] = [
     src: "/images/review/review-03.jpeg",
     width: 966,
     height: 724,
-    caption: "자궁 근종 초음파 사진",
+    caption: "자궁근종 초음파 사진",
   },
   {
     type: "lines",

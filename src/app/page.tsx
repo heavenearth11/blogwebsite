@@ -1,3 +1,4 @@
+import { Leaf } from "lucide-react";
 import { ReviewArticle } from "@/components/site/ReviewArticle";
 import { meta, introBlocks, bodyBlocks } from "@/data/review-content";
 
@@ -8,43 +9,45 @@ export default function Home() {
     <>
       <header className="border-b border-border bg-background">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-3">
-          <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-              E
+          <div className="flex items-center">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+              <Leaf className="h-4 w-4" />
             </span>
-            <span className="text-base font-bold tracking-tight text-foreground">
+            <span className="ml-2 text-base font-bold tracking-tight text-foreground">
               에스트록스
             </span>
           </div>
-          <a
-            href={PRODUCT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-full bg-primary px-4 py-1.5 text-xs font-semibold text-primary-foreground transition-all hover:bg-primary/80"
-          >
-            상품 보러가기
-          </a>
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground">
+              전체글
+            </span>
+            <span className="inline-flex items-center rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground">
+              + 이웃추가
+            </span>
+          </div>
         </div>
       </header>
 
       <main className="flex-1 bg-background">
         {/* 히어로 */}
-        <section className="bg-secondary/60">
-          <div className="mx-auto max-w-3xl px-5 py-12 sm:py-16">
+        <section className="bg-background">
+          <div className="mx-auto max-w-3xl px-5 py-8">
             <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
-              실제 후기
+              건강기록
             </span>
-            <h1 className="mt-4 text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+            <h1 className="mt-3 text-2xl font-bold leading-snug text-foreground sm:text-3xl">
               {meta.title}
             </h1>
-            <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
-                E
+            <div className="mt-5 flex items-center gap-2.5">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                <Leaf className="h-4 w-4" />
               </span>
-              <span className="font-medium text-foreground">에스트록스</span>
-              <span aria-hidden>·</span>
-              <span>2026. 04. 29.</span>
+              <div className="leading-tight">
+                <p className="text-sm font-bold text-foreground">에스트록스</p>
+                <p className="text-xs text-muted-foreground">2026. 04. 29.</p>
+              </div>
             </div>
+            <div className="mt-5 border-t border-border" />
             <p className="mt-4 text-xs text-muted-foreground">
               원문: <span className="break-all">{meta.sourceUrl}</span>
             </p>

@@ -48,9 +48,6 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-5 border-t border-border" />
-            <p className="mt-4 text-xs text-muted-foreground">
-              원문: <span className="break-all">{meta.sourceUrl}</span>
-            </p>
           </div>
         </section>
 

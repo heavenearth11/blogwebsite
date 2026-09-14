@@ -114,7 +114,7 @@ function BlockView({ block }: { block: Block }) {
 
 export function ReviewArticle({ blocks }: { blocks: Block[] }) {
   return (
-    <div className="space-y-5">
+    <div className="space-y-9">
       {blocks.map((block, i) => (
         <BlockView key={i} block={block} />
       ))}

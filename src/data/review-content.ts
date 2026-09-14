@@ -29,6 +29,12 @@ export type Block =
       height: number;
       caption: string;
     }
+  | {
+      type: "imagePair";
+      left: { src: string; width: number; height: number };
+      right: { src: string; width: number; height: number };
+      caption: string;
+    }
   | { type: "divider" }
   | { type: "source"; text: string };
 
@@ -392,6 +398,32 @@ export const bodyBlocks: Block[] = [
     width: 780,
     height: 1024,
     caption: "논문에 나온대로 먹어보려 했지만, 매일 유효한 양을 챙겨먹기에는 불가능",
+  },
+  {
+    type: "lines",
+    lines: [
+      ["그리고 골고루 챙겨먹으려고"],
+      ["다양한 종류의 야채를 샀는데"],
+      ["야근하거나 약속이 있는 날에는"],
+      ["밖에서 밥을 먹게되니"],
+      ["집밥을 꾸준히 챙겨먹기 힘들더라구요."],
+    ],
+  },
+  {
+    type: "lines",
+    lines: [
+      ["결국 요리로 해먹은 야채보다"],
+      ["버리는게 더 많게되니"],
+      ["이렇게 관리하는거는"],
+      ["오래 못하겠다는것을"],
+      ["깨달았어요."],
+    ],
+  },
+  {
+    type: "imagePair",
+    left: { src: "/images/review/브로콜리.jpg", width: 891, height: 587 },
+    right: { src: "/images/review/양배추.jpg", width: 1165, height: 1112 },
+    caption: "결국 상해버린 브로콜리와 양배추",
   },
   {
     type: "lines",

@@ -101,6 +101,30 @@ function BlockView({ block }: { block: Block }) {
           </figcaption>
         </figure>
       );
+    case "imagePair":
+      return (
+        <figure className="mt-2 mb-12">
+          <div className="grid grid-cols-2 gap-2">
+            <Image
+              src={block.left.src}
+              alt={block.caption}
+              width={block.left.width}
+              height={block.left.height}
+              className="h-full w-full rounded-xl object-cover"
+            />
+            <Image
+              src={block.right.src}
+              alt={block.caption}
+              width={block.right.width}
+              height={block.right.height}
+              className="h-full w-full rounded-xl object-cover"
+            />
+          </div>
+          <figcaption className="mt-2 text-center text-[13px] font-bold text-[#555555]">
+            {block.caption}
+          </figcaption>
+        </figure>
+      );
     case "divider":
       return <hr className="border-border" />;
     case "source":

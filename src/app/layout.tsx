@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   title: "영은이의 건강일기",
   description: meta.title,
   openGraph: {
-    title: "영은이의 건강일기",
+    title: meta.title,
     description: meta.title,
     images: ["/images/review/review-01.jpeg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "영은이의 건강일기",
+    title: meta.title,
     description: meta.title,
     images: ["/images/review/review-01.jpeg"],
   },

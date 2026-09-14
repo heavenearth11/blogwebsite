@@ -18,11 +18,21 @@ export default function Home() {
         {/* 히어로 */}
         <section className="bg-secondary/60">
           <div className="mx-auto max-w-3xl px-5 py-12 sm:py-16">
-            <p className="mb-3 text-sm font-medium text-primary">실제 후기</p>
-            <h1 className="text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              실제 후기
+            </span>
+            <h1 className="mt-4 text-2xl font-bold leading-snug text-foreground sm:text-3xl">
               {meta.title}
             </h1>
-            <p className="mt-3 text-xs text-muted-foreground">
+            <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-bold text-primary-foreground">
+                E
+              </span>
+              <span className="font-medium text-foreground">에스트록스</span>
+              <span aria-hidden>·</span>
+              <span>2026. 04. 29.</span>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
               원문: <span className="break-all">{meta.sourceUrl}</span>
             </p>
           </div>

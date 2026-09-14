@@ -1,5 +1,6 @@
 import { Leaf } from "lucide-react";
 import { ReviewArticle } from "@/components/site/ReviewArticle";
+import { CopyLinkButton } from "@/components/site/CopyLinkButton";
 import { meta, introBlocks, bodyBlocks } from "@/data/review-content";
 
 export default function Home() {
@@ -40,10 +41,11 @@ export default function Home() {
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
                 <Leaf className="h-4 w-4" />
               </span>
-              <div className="leading-tight">
+              <div className="min-w-0 flex-1 leading-tight">
                 <p className="text-sm font-bold text-foreground">영은이의 건강일기</p>
                 <p className="text-xs text-muted-foreground">2026. 04. 29.</p>
               </div>
+              <CopyLinkButton />
             </div>
             <div className="mt-5 border-t border-border" />
           </div>

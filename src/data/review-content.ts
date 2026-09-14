@@ -49,7 +49,7 @@ export type Block =
   | { type: "source"; text: string };
 
 export const introBlocks: Block[] = [
-  { type: "h2", text: ["(시작하기에 앞서…)"] },
+  { type: "h2", text: [r("(시작하기에 앞서…)")] },
   {
     type: "lines",
     lines: [
@@ -109,15 +109,16 @@ export const bodyBlocks: Block[] = [
   {
     type: "lines",
     lines: [
-      ["2년 전 자궁내막증 진단을 받았었어요.."],
+      ["4년 전 자궁내막증 진단을 받았었어요.."],
       ["생리가 불규칙해지고,"],
-      ["양도 너무 과다해서 진료를 받았었거든요."],
+      ["생리양도 감당할수 없는 수준이라서"],
+      ["산부인과가서 진료를 받았어요."],
     ],
   },
   {
     type: "lines",
     lines: [
-      ["혹시나 해서 산부인과에 가보니,"],
+      ["전혀 생각지도 못했는데"],
       ["자궁내막증이라는"],
       ["이름도 어려운 병이더라고요."],
       ["임신을 계획하던 중이기에"],

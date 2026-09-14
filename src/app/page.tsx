@@ -7,10 +7,23 @@ export default function Home() {
   return (
     <>
       <header className="border-b border-border bg-background">
-        <div className="mx-auto flex max-w-3xl items-center px-5 py-4">
-          <span className="text-lg font-bold tracking-tight text-primary">
-            에스트록스
-          </span>
+        <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-3">
+          <div className="flex items-center gap-2">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+              E
+            </span>
+            <span className="text-base font-bold tracking-tight text-foreground">
+              에스트록스
+            </span>
+          </div>
+          <a
+            href={PRODUCT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-full bg-primary px-4 py-1.5 text-xs font-semibold text-primary-foreground transition-all hover:bg-primary/80"
+          >
+            상품 보러가기
+          </a>
         </div>
       </header>
 
@@ -18,7 +31,7 @@ export default function Home() {
         {/* 히어로 */}
         <section className="bg-secondary/60">
           <div className="mx-auto max-w-3xl px-5 py-12 sm:py-16">
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+            <span className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
               실제 후기
             </span>
             <h1 className="mt-4 text-2xl font-bold leading-snug text-foreground sm:text-3xl">

@@ -16,11 +16,11 @@ const r = (text: string): Run => ({ text, red: true });
 const br = (text: string): Run => ({ text, bold: true, red: true });
 
 export type Block =
-  | { type: "lines"; lines: RichText[] }
+  | { type: "lines"; lines: RichText[]; gapBeforePx?: number }
   | { type: "lead"; lines: RichText[] }
   | { type: "quote"; lines: RichText[] }
   | { type: "h2"; text: RichText }
-  | { type: "h3"; text: RichText }
+  | { type: "h3"; text: RichText; noMarginAfter?: boolean }
   | { type: "list"; items: RichText[] }
   | {
       type: "image";
@@ -275,9 +275,10 @@ export const bodyBlocks: Block[] = [
     height: 555,
     caption: "외국 커뮤니티 사이트를 살펴보니 유용한 정보들이 많았다.",
   },
-  { type: "h3", text: ["① 규칙적인 골반 순환 운동"] },
+  { type: "h3", text: ["① 규칙적인 골반 순환 운동"], noMarginAfter: true },
   {
     type: "lines",
+    gapBeforePx: 29,
     lines: [
       ["하루 20~30분 가볍게 걷기,"],
       ["고관절 스트레칭을 통해"],
@@ -287,9 +288,10 @@ export const bodyBlocks: Block[] = [
       ["독소를 조금이라도 빼기 위해서요."],
     ],
   },
-  { type: "h3", text: ["② 코르티솔(스트레스) 차단"] },
+  { type: "h3", text: ["② 코르티솔(스트레스) 차단"], noMarginAfter: true },
   {
     type: "lines",
+    gapBeforePx: 29,
     lines: [
       ["스트레스는 에스트로겐 분해를 방해하고"],
       ["자궁 독소를 축적시키는 주범이라"],
@@ -306,9 +308,10 @@ export const bodyBlocks: Block[] = [
       ["따로 캔들이나 디퓨저는 사용하지 않았어요."],
     ],
   },
-  { type: "h3", text: ["③ 과잉 에스트로겐 분해 및 ", r("자궁 디톡스"), " (가장 핵심)"] },
+  { type: "h3", text: ["③ 과잉 에스트로겐 분해 및 ", r("자궁 디톡스"), " (가장 핵심)"], noMarginAfter: true },
   {
     type: "lines",
+    gapBeforePx: 29,
     lines: [
       ["아무래도 운동과 스트레스 관리만으로는"],
       ["이미 자궁에 쌓인 과잉 에스트로겐을"],
@@ -333,7 +336,7 @@ export const bodyBlocks: Block[] = [
     src: "/images/review/review-06.png",
     width: 637,
     height: 516,
-    caption: "강황 추출물이 자궁질환 개선에 실제 효과를 준다는 것을 정리한 논문",
+    caption: "강황이 자궁질환 개선에 실제 효과를 준다는 것을 정리한 논문",
   },
   {
     type: "source",
@@ -436,7 +439,7 @@ export const bodyBlocks: Block[] = [
     type: "list",
     items: [
       [b("강황추출물 + 녹차추출물")],
-      [b("양배추 + 케일 + 시금치 + 브로콜리새싹분말(설포라판)")],
+      [b("양배추 + 케일 + 시금치 + 브로콜리새싹분말")],
       [b("22종 혼합유산균 및 비타민 D3, E, B6")],
     ],
   },
@@ -450,27 +453,30 @@ export const bodyBlocks: Block[] = [
       ["믿고 복용을 시작했어요."],
     ],
   },
-  { type: "h2", text: ["4. 3개월 후, 나에게 찾아온 기적 같은 변화"] },
+  { type: "h2", text: ["4. 나에게 찾아온 기적 같은 변화"] },
   { type: "lines", lines: [["복용 후 변화는 생각보다 빠르게 찾아왔어요."]] },
-  { type: "h3", text: [r("1개월 차")] },
+  { type: "h3", text: [r("1개월 차")], noMarginAfter: true },
   {
     type: "lines",
+    gapBeforePx: 18,
     lines: [
       ["매달 삶을 흔들던 극심한 생리통과"],
       ["생리 전 부정출혈이 눈에 띄게 줄어들었어요."],
     ],
   },
-  { type: "h3", text: [r("2개월 차")] },
+  { type: "h3", text: [r("2개월 차")], noMarginAfter: true },
   {
     type: "lines",
+    gapBeforePx: 18,
     lines: [
       ["묵직하고 찌르는 듯했던 골반 통증이 사라지고"],
       ["몸 전체가 가벼워졌어요."],
     ],
   },
-  { type: "h3", text: [r("3개월 차")] },
+  { type: "h3", text: [r("3개월 차")], noMarginAfter: true },
   {
     type: "lines",
+    gapBeforePx: 18,
     lines: [
       ["병원 정기검진 날, 초음파 화면을 보고"],
       ["의사 선생님도 놀라움을 금치 못하셨어요."],

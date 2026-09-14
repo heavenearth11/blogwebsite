@@ -24,12 +24,14 @@ function RichTextView({ text }: { text: RichText }) {
 function LineGroup({
   lines,
   lineClassName,
+  style,
 }: {
   lines: RichText[];
   lineClassName?: string;
+  style?: React.CSSProperties;
 }) {
   return (
-    <div className="space-y-1">
+    <div className="space-y-1" style={style}>
       {lines.map((line, i) => (
         <p key={i} className={lineClassName}>
           <RichTextView text={line} />
@@ -46,6 +48,7 @@ function BlockView({ block }: { block: Block }) {
         <LineGroup
           lines={block.lines}
           lineClassName="text-[15px] leading-7 text-foreground/90"
+          style={block.gapBeforePx != null ? { marginTop: block.gapBeforePx } : undefined}
         />
       );
     case "lead":
@@ -72,7 +75,10 @@ function BlockView({ block }: { block: Block }) {
       );
     case "h3":
       return (
-        <h3 className="pt-6 text-[19px] font-bold text-foreground">
+        <h3
+          className="pt-6 text-[19px] font-bold text-foreground"
+          style={block.noMarginAfter ? { marginBottom: 0 } : undefined}
+        >
           <RichTextView text={block.text} />
         </h3>
       );

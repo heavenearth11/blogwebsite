@@ -14,7 +14,7 @@ export default function Home() {
               <Leaf className="h-4 w-4" />
             </span>
             <span className="ml-2 text-base font-bold tracking-tight text-foreground">
-              에스트록스
+              영은이의 건강일기
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function Home() {
                 <Leaf className="h-4 w-4" />
               </span>
               <div className="leading-tight">
-                <p className="text-sm font-bold text-foreground">에스트록스</p>
+                <p className="text-sm font-bold text-foreground">영은이의 건강일기</p>
                 <p className="text-xs text-muted-foreground">2026. 04. 29.</p>
               </div>
             </div>

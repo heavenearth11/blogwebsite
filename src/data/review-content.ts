@@ -201,7 +201,7 @@ export const bodyBlocks: Block[] = [
   },
   {
     type: "quote",
-    lines: [[b("“이번엔 자궁근종이네요. 크기도 5 cm 입니다.”")]],
+    lines: [[b("“이번엔 자궁근종이네요")], [b("크기도 5cm입니다.”")]],
   },
   {
     type: "quote",
@@ -279,8 +279,8 @@ export const bodyBlocks: Block[] = [
     type: "lines",
     lines: [
       ["그러다 발견한 자궁 질환의 근본적인 원인은"],
-      ["바로 '과잉 에스트로겐 축적"],
-      ["(에스트로겐 우세증)'이었어요."],
+      ["바로 '과잉 에스트로겐 축적'"],
+      ["(에스트로겐 우세증)이었어요."],
     ],
   },
   {
@@ -416,7 +416,7 @@ export const bodyBlocks: Block[] = [
     src: "/images/review/review-07.png",
     width: 775,
     height: 397,
-    caption: "브로콜리 새싹, 케일 등이 자궁질환 삶의 질을 크게 높인다는 내용",
+    caption: "브로콜리, 케일이 자궁질환 환자의 삶의 질을 높인다는 내용",
   },
   {
     type: "source",
@@ -536,13 +536,13 @@ export const bodyBlocks: Block[] = [
     gapBeforePx: 18,
     lines: [
       ["병원 정기검진 날, 초음파 화면을 보고"],
-      ["의사 선생님도 놀라움을 금치 못하셨어요."],
+      ["의사 선생님도 무슨 관리했냐고 물어보셨어요."],
     ],
   },
   {
     type: "lines",
     lines: [
-      [b("5cm에 달했던 자궁근종이")],
+      [b("5cm나 됐던 자궁근종이")],
       [b("1cm로 줄어들었고,")],
       [b("흩어져 있던 내막증 병변들이")],
       [b("거의 깨끗하게 정리되었어요.")],

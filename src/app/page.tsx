@@ -2,8 +2,6 @@ import { Leaf } from "lucide-react";
 import { ReviewArticle } from "@/components/site/ReviewArticle";
 import { meta, introBlocks, bodyBlocks } from "@/data/review-content";
 
-const PRODUCT_URL = "https://luxnlab.co.kr/product/detail.html?product_no=17";
-
 export default function Home() {
   return (
     <>
@@ -57,28 +55,7 @@ export default function Home() {
           <div className="my-8 border-t border-border" />
           <ReviewArticle blocks={bodyBlocks} />
         </article>
-
-        {/* 최종 CTA — 콘텐츠 마지막, 자사몰 링크는 여기 하나만 */}
-        <section className="border-t border-border bg-secondary/60">
-          <div className="mx-auto max-w-3xl px-5 py-12 text-center">
-            <a
-              href={PRODUCT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-6 text-base font-medium text-primary-foreground transition-all hover:bg-primary/80"
-            >
-              자세히 알아보기
-            </a>
-          </div>
-        </section>
       </main>
-
-      <footer className="border-t border-border">
-        <div className="mx-auto max-w-3xl px-5 py-8 text-xs text-muted-foreground">
-          <p>에스트록스</p>
-          <p className="mt-1">사업자 정보는 확인 후 추가 예정입니다.</p>
-        </div>
-      </footer>
     </>
   );
 }
